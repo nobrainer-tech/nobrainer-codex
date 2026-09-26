@@ -54,7 +54,7 @@ class InstallerTest(unittest.TestCase):
                                            "default_subagent_model": "openai/gpt-6-luna"})
         self.assertEqual(state["tui"]["status_line"][1], "context-remaining")
         self.assertIn("https://github.com/nobrainer-tech/nobrainer-tech-flow", self.agents.read_text())
-        self.assertIn("Use NoBrainer.Tech Flow", self.agents.read_text())
+        self.assertIn("Use nobrainer-tech-flow", self.agents.read_text())
         self.assertEqual(self.run_installer("--apply").returncode, 0)
         self.assertEqual(len(list(self.home.glob("nobrainer-codex-backup-*"))), 1)
 

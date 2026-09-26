@@ -1,24 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">NoBrainer Codex: get more from Codex</title>
-  <desc id="desc">See supported reasoning levels, configure catalog-backed context and coordinate focused Luna agents with NoBrainer.Tech Flow.</desc>
+  <desc id="desc">See supported reasoning levels, configure catalog-backed context and coordinate focused Luna agents with nobrainer-tech-flow.</desc>
   <rect width="1200" height="630" fill="#f4f3ee"/>
   <path d="M0 0h1200v19H0z" fill="#2948b8"/>
   <rect x="68" y="71" width="14" height="14" fill="#d94724"/>
   <text x="94" y="85" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#202124">nobrainer.tech/codex</text>
   <text x="67" y="210" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="700" letter-spacing="-3" fill="#202124">Get more from</text>
   <text x="67" y="294" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="700" letter-spacing="-3" fill="#2948b8">Codex.</text>
-  <text x="70" y="367" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#485162">Supported reasoning. Real context.</text>
-  <text x="70" y="408" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#485162">Focused Luna delegation.</text>
+  <text x="70" y="367" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#485162">15 configured agent slots.</text>
+  <text x="70" y="408" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#485162">1M+ GPT-6 API context*</text>
   <rect x="70" y="476" width="477" height="74" rx="9" fill="#2948b8"/>
   <text x="96" y="523" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" fill="#fff">Codex + nobrainer-tech-flow</text>
   <rect x="684" y="103" width="438" height="437" rx="30" fill="#e5eaf5" stroke="#bac6dc" stroke-width="3"/>
-  <rect x="728" y="153" width="159" height="97" rx="18" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
-  <text x="768" y="208" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700" fill="#202124">MAIN</text>
-  <path d="M809 254v54m-8-8 8 8 8-8" stroke="#2948b8" stroke-width="5" fill="none"/>
-  <rect x="727" y="322" width="354" height="65" rx="12" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
-  <text x="757" y="364" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#202124">Luna: scoped work</text>
-  <path d="M906 394v31m-8-8 8 8 8-8" stroke="#2948b8" stroke-width="5" fill="none"/>
-  <rect x="727" y="443" width="354" height="58" rx="12" fill="#d6e2fb" stroke="#2948b8" stroke-width="3"/>
-  <text x="755" y="480" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#202124">Context: visible</text>
-  <path d="M68 585h1055" stroke="#abb7cc" stroke-width="2"/>
+  <rect x="794" y="145" width="220" height="95" rx="18" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
+  <text x="856" y="200" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700" fill="#202124">MAIN</text>
+  <path d="M904 240v70M765 310h278M765 310v24M904 310v24M1043 310v24" stroke="#2948b8" stroke-width="4" fill="none"/>
+  <circle cx="904" cy="310" r="6" fill="#d94724"/>
+  <rect x="704" y="334" width="122" height="112" rx="12" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
+  <rect x="843" y="334" width="122" height="112" rx="12" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
+  <rect x="982" y="334" width="122" height="112" rx="12" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-weight="700" fill="#202124">
+    <text x="721" y="375" font-size="18">LUNA 01</text><text x="860" y="375" font-size="18">LUNA 02</text><text x="999" y="375" font-size="18">LUNA 03</text>
+    <text x="722" y="407" font-size="16">Research</text><text x="881" y="407" font-size="16">Build</text><text x="1017" y="407" font-size="16">Review</text>
+  </g>
+  <text x="904" y="489" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#485162">MAIN checks the work</text>
+  <text x="70" y="598" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#485162">*Codex may expose less; the installer uses its local catalog.</text>
 </svg>

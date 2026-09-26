@@ -4,7 +4,7 @@ SPEC_ID: nobrainer-codex-20260926
 VERSION: 0.2.0
 STATUS: IMPLEMENTING
 OWNER: NoBrainer.Tech
-APPROVAL: Owner's 2026-09-26 request for a Codex-capabilities-first public installer and page, the five NoBrainer.Tech Flow instructions, 15 ready subagents, catalog-backed context and reasoning visibility, with SSD migration optional.
+APPROVAL: Owner's 2026-09-26 request for a Codex-capabilities-first public installer and page, the five nobrainer-tech-flow instructions, 15 ready subagents, catalog-backed context and reasoning visibility, with SSD migration optional.
 
 ## Outcome and scope
 
@@ -16,15 +16,16 @@ SSD relocation is optional and separately authorized. It is a platform-specific 
 
 | ID | Requirement | Evidence |
 |---|---|---|
-| AC01 | Full Flow URL and owner's five NoBrainer.Tech Flow instructions installed byte-for-byte | `--check` and file readback |
+| AC01 | Full Flow URL and owner's five nobrainer-tech-flow instructions installed byte-for-byte | `--check` and file readback |
 | AC02 | `agents.max_concurrent_threads_per_session=15`, Luna default, no fixed worker effort | parse config after apply |
 | AC03 | Selected model's local catalog ceiling applied when available; other models never falsely advertised at that ceiling | supported/unsupported catalog fixtures |
 | AC03a | Preflight reports selected model's catalog reasoning levels and whether `max` is listed; it never changes selected effort or promises client support | catalog fixtures and readback |
 | AC04 | User-selected model and effort unchanged, existing config sections/comments retained | original vs new config comparison |
 | AC05 | CLI context visible via supported `tui.status_line`; desktop `/status` explained separately | parsed config + official docs |
 | AC06 | Idempotent, atomic write and internal backup; malformed catalog fails before writes, while an unavailable catalog leaves the context setting unchanged | temp-home tests |
-| AC07 | English-only public website leads with supported Codex settings, context and delegation, shows updated hero/social graphics, and places SSD as an optional final section without invented savings or safety guarantees | link/static checks + rendered mobile/desktop review |
+| AC07 | English-only public website leads with 15 configured slots, 1M+ GPT-6 API context clearly distinguished from the local Codex catalog, and MAX only where supported; the orchestration tree and optional before/after SSD illustration match the copy without implying Docker is required or savings are guaranteed | link/static checks + rendered mobile/desktop review |
 | AC08 | SSD runbook differentiates data copy, actual runtime verification, owner cleanup gate and absent-volume failure | readback and isolated probe where possible |
+| AC09 | One copy button copies the complete install prompt with an accessible result; optional `codex://` opens a registered app without claiming prompt prefill | local browser interaction and static checks |
 
 ## Owner gates and rollback
 

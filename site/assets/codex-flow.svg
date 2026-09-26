@@ -1,26 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 590" role="img" aria-labelledby="title desc">
-  <title id="title">Codex and nobrainer-tech-flow workflow</title>
-  <desc id="desc">Your chosen MAIN model keeps the goal and coordinates independently scoped Luna agents through NoBrainer.Tech Flow. Catalog-backed context and supported reasoning levels stay visible.</desc>
+  <title id="title">Codex and nobrainer-tech-flow orchestration tree</title>
+  <desc id="desc">One chosen MAIN model sets the goal and reviews results. Three example GPT-6 Luna workers below it handle bounded research, build and review tasks. Up to 15 slots can be configured when the host supports them.</desc>
   <defs>
-    <filter id="lift" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#172943" flood-opacity=".14"/></filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#2948b8"/></marker>
+    <filter id="lift" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#172943" flood-opacity=".13"/></filter>
   </defs>
   <rect width="760" height="590" rx="30" fill="#edf0f6"/>
-  <path d="M46 82h668M46 496h668" stroke="#b6c2d3" stroke-width="2"/>
-  <rect x="48" y="38" width="12" height="12" fill="#d94724"/><text x="71" y="49" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-weight="800" font-size="17" fill="#202124">CODEX</text>
-  <text x="146" y="49" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" fill="#485162">+</text>
-  <text x="165" y="49" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-weight="750" font-size="17" fill="#2948b8">nobrainer-tech-flow</text>
-  <text x="554" y="48" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#485162">YOUR CODEX SETUP</text>
-  <g filter="url(#lift)"><rect x="54" y="129" width="236" height="270" rx="24" fill="#fffdf9" stroke="#abb7cc"/><rect x="75" y="153" width="65" height="30" rx="4" fill="#2948b8"/><text x="88" y="174" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" font-weight="750" fill="white">MAIN</text>
-  <text x="77" y="224" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="29" font-weight="750" fill="#202124">Codex</text><text x="77" y="254" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#485162">Your chosen model</text>
-  <path d="M77 284h187" stroke="#abb7cc"/><text x="77" y="317" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#202124">Keeps the goal</text><text x="77" y="344" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#202124">and checks the result</text></g>
-  <path d="M302 232h57" stroke="#2948b8" stroke-width="3" marker-end="url(#arrow)"/>
-  <g filter="url(#lift)"><rect x="371" y="129" width="334" height="270" rx="24" fill="#fffdf9" stroke="#abb7cc"/><text x="396" y="169" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="750" fill="#ae381d">INDEPENDENT WORK</text>
-  <g fill="#edf0f6"><rect x="393" y="195" width="287" height="46" rx="6"/><rect x="393" y="251" width="287" height="46" rx="6"/><rect x="393" y="307" width="287" height="46" rx="6"/></g>
-  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" fill="#202124"><text x="408" y="225">Luna 01  ·  bounded task</text><text x="408" y="281">Luna 02  ·  separate scope</text><text x="408" y="337">Luna 03  ·  auditable proof</text></g><text x="394" y="380" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#485162">Up to 15 slots when the host supports them</text></g>
-  <path d="M380 405v52" stroke="#2948b8" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="110" y="465" width="545" height="91" rx="8" fill="#dbe4f6" stroke="#2948b8" stroke-width="2"/>
-  <rect x="133" y="487" width="27" height="27" rx="3" fill="#2948b8"/><path d="M139 501l5 5 10-12" fill="none" stroke="white" stroke-width="3"/>
-  <text x="174" y="506" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#202124">Supported settings, visible</text>
-  <text x="174" y="532" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" fill="#485162">Reasoning levels  ·  model context  ·  agent ceiling</text>
+  <path d="M46 79h668M46 516h668" stroke="#b6c2d3" stroke-width="2"/>
+  <rect x="48" y="36" width="12" height="12" fill="#d94724"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <text x="71" y="48" font-weight="800" font-size="17" fill="#202124">CODEX</text>
+    <text x="147" y="48" font-size="18" fill="#485162">+</text>
+    <text x="166" y="48" font-weight="750" font-size="17" fill="#2948b8">nobrainer-tech-flow</text>
+    <text x="573" y="48" font-size="14" fill="#485162">ILLUSTRATIVE</text>
+    <g filter="url(#lift)">
+      <rect x="218" y="105" width="324" height="137" rx="24" fill="#fffdf9" stroke="#abb7cc"/>
+      <rect x="241" y="126" width="72" height="28" rx="4" fill="#2948b8"/>
+      <text x="254" y="145" font-size="14" font-weight="750" fill="#fff">MAIN</text>
+      <text x="242" y="189" font-size="27" font-weight="750" fill="#202124">Your chosen model</text>
+      <text x="242" y="218" font-size="16" fill="#485162">Sets the goal and checks results</text>
+    </g>
+    <path d="M380 242v44M146 286h468M146 286v37M380 286v37M614 286v37" fill="none" stroke="#2948b8" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="380" cy="286" r="6" fill="#d94724"/>
+    <g filter="url(#lift)">
+      <rect x="42" y="323" width="208" height="166" rx="24" fill="#fffdf9" stroke="#abb7cc"/>
+      <rect x="276" y="323" width="208" height="166" rx="24" fill="#fffdf9" stroke="#abb7cc"/>
+      <rect x="510" y="323" width="208" height="166" rx="24" fill="#fffdf9" stroke="#abb7cc"/>
+    </g>
+    <g font-size="14" font-weight="750" fill="#ae381d">
+      <text x="62" y="357">LUNA 01</text><text x="296" y="357">LUNA 02</text><text x="530" y="357">LUNA 03</text>
+    </g>
+    <g font-size="24" font-weight="750" fill="#202124">
+      <text x="62" y="397">Research</text><text x="296" y="397">Build</text><text x="530" y="397">Review</text>
+    </g>
+    <g font-size="15" fill="#485162">
+      <text x="62" y="432">Find relevant facts</text><text x="62" y="457">in a bounded scope</text>
+      <text x="296" y="432">Implement a clear</text><text x="296" y="457">independent slice</text>
+      <text x="530" y="432">Check the result</text><text x="530" y="457">against evidence</text>
+    </g>
+    <text x="380" y="548" text-anchor="middle" font-size="16" fill="#485162">Up to 15 configured slots - actual host capacity varies</text>
+  </g>
 </svg>
