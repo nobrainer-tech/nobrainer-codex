@@ -23,7 +23,7 @@ class InstallerTest(unittest.TestCase):
         ]}))
         self.config = self.home / "config.toml"
         self.config.write_text('model = "gpt-6-astra"\nmodel_reasoning_effort = "low"\n'
-                               f'model_catalog_json = "{self.catalog}"\n'
+                               f'model_catalog_json = {json.dumps(str(self.catalog))}\n'
                                'approval_policy = "on-request"\n\n[agents]\n'
                                'max_concurrent_threads_per_session = 3\n\n[tui]\n'
                                'screen_reader_detection_done = true\n')

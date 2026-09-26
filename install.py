@@ -96,11 +96,14 @@ def selected_ceiling(config: dict, home: Path) -> tuple[int | None, str]:
 def atomic_write(path: Path, data: bytes, mode: int) -> None:
     descriptor, temporary = tempfile.mkstemp(prefix=".nobrainer-codex-", dir=path.parent)
     try:
-        os.fchmod(descriptor, mode)
+        if hasattr(os, "fchmod"):
+            os.fchmod(descriptor, mode)
         with os.fdopen(descriptor, "wb") as stream:
             stream.write(data)
             stream.flush()
             os.fsync(stream.fileno())
+        if not hasattr(os, "fchmod"):
+            os.chmod(temporary, mode)
         os.replace(temporary, path)
     finally:
         if os.path.exists(temporary):
