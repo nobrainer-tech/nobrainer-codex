@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">NoBrainer Codex: more room, better flow</title>
+  <desc id="desc">Codex and nobrainer-tech-flow coordinate focused Luna agents while verified external SSD storage makes room for more work.</desc>
+  <rect width="1200" height="630" fill="#f4f3ee"/>
+  <path d="M0 0h1200v19H0z" fill="#2948b8"/>
+  <rect x="68" y="71" width="14" height="14" fill="#d94724"/>
+  <text x="94" y="85" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#202124">nobrainer.tech/codex</text>
+  <text x="67" y="210" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="700" letter-spacing="-3" fill="#202124">More room.</text>
+  <text x="67" y="294" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="700" letter-spacing="-3" fill="#2948b8">Better flow.</text>
+  <text x="70" y="367" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#485162">Focused Luna agents. Visible context.</text>
+  <text x="70" y="408" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#485162">A safer path to external SSD storage.</text>
+  <rect x="70" y="476" width="477" height="74" rx="9" fill="#2948b8"/>
+  <text x="96" y="523" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" fill="#fff">Codex + nobrainer-tech-flow</text>
+  <rect x="684" y="103" width="438" height="437" rx="30" fill="#e5eaf5" stroke="#bac6dc" stroke-width="3"/>
+  <rect x="728" y="153" width="159" height="97" rx="18" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
+  <text x="768" y="208" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700" fill="#202124">MAIN</text>
+  <path d="M809 254v54m-8-8 8 8 8-8" stroke="#2948b8" stroke-width="5" fill="none"/>
+  <rect x="727" y="322" width="354" height="65" rx="12" fill="#fffdf9" stroke="#2948b8" stroke-width="3"/>
+  <text x="757" y="364" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#202124">Luna: scoped work</text>
+  <path d="M906 394v31m-8-8 8 8 8-8" stroke="#2948b8" stroke-width="5" fill="none"/>
+  <rect x="727" y="443" width="354" height="58" rx="12" fill="#d6e2fb" stroke="#2948b8" stroke-width="3"/>
+  <text x="755" y="480" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#202124">SSD: verified move</text>
+  <path d="M68 585h1055" stroke="#abb7cc" stroke-width="2"/>
+</svg>

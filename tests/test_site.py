@@ -37,9 +37,16 @@ class SiteTest(unittest.TestCase):
         self.assertIn("https://github.com/nobrainer-tech/nobrainer-codex", parser.links)
         self.assertIn("https://github.com/nobrainer-tech/nobrainer-codex/blob/main/docs/external-ssd.md", parser.links)
         self.assertIn("https://github.com/nobrainer-tech/nobrainer-tech-flow", parser.links)
-        for lang in ("pl", "de", "es", "fr", "zh-Hans"):
-            self.assertTrue(f"{lang}:{{" in text or f"'{lang}':{{" in text, f"No translation: {lang}")
-        self.assertIn("872k nie powiększy słabszego modelu", text)
+        self.assertIn('<html lang="en">', text)
+        self.assertNotIn('id="language"', text)
+        self.assertNotIn('hreflang="pl"', text)
+        self.assertIn('If your Mac mini is running out of space', text)
+        self.assertIn('nobrainer-tech-flow (https://github.com/nobrainer-tech/nobrainer-tech-flow)', text)
+        self.assertIn('assets/codex-flow.svg', text)
+        self.assertIn('Codex and nobrainer-tech-flow workflow', (ROOT / 'site/assets/codex-flow.svg').read_text(encoding='utf-8'))
+        self.assertIn('https://nobrainer.tech/codex/assets/social-card.png', text)
+        self.assertTrue((ROOT / 'site/assets/social-card.png').is_file())
+        self.assertIn('A configured 872k window cannot enlarge a smaller model', text)
         self.assertIn("python3 install.py --check", text)
 
 

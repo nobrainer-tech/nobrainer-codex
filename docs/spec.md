@@ -4,7 +4,7 @@ SPEC_ID: nobrainer-codex-20260926
 VERSION: 0.1.0
 STATUS: IMPLEMENTING
 OWNER: NoBrainer.Tech
-APPROVAL: Owner's 2026-09-26 request for a public cross-platform installer, full NoBrainer.Tech Flow URL, 15 ready subagents, truthful max context, context visibility, safe SSD migration guidance and `/codex` public page.
+APPROVAL: Owner's 2026-09-26 request for a public cross-platform installer, the canonical nobrainer-tech-flow name and full URL, 15 ready subagents, truthful max context, context visibility, safe SSD migration guidance and `/codex` public page.
 
 ## Outcome and scope
 
@@ -16,13 +16,13 @@ SSD relocation is a separately authorized, platform-specific process with an exi
 
 | ID | Requirement | Evidence |
 |---|---|---|
-| AC01 | Full NoBrainer.Tech Flow URL and user's exact five instructions installed, byte-for-byte | `--check` and file readback |
+| AC01 | Full nobrainer-tech-flow URL and owner's five instructions with the corrected product name installed, byte-for-byte | `--check` and file readback |
 | AC02 | `agents.max_concurrent_threads_per_session=15`, Luna default, no fixed worker effort | parse config after apply |
 | AC03 | Selected default model's actual catalog ceiling applied when available; other models never falsely advertised at 872k | supported/unsupported catalog fixtures |
 | AC04 | User-selected model and effort unchanged, existing config sections/comments retained | original vs new config comparison |
 | AC05 | CLI context visible via supported `tui.status_line`; desktop `/status` explained separately | parsed config + official docs |
 | AC06 | Idempotent, atomic write and internal backup; unreadable/unknown catalog fails without partial config write | temp-home tests |
-| AC07 | Public website links to verified instructions, no invented speeds/safety guarantees; six locale routes and mobile layout | link/static checks + rendered review |
+| AC07 | English-only public website links to verified instructions, shows a Codex + nobrainer-tech-flow illustration, a 1200 × 630 social image, scoped-context benefits and a full-disk-to-SSD use case without invented savings or safety guarantees | link/static checks + rendered mobile/desktop review |
 | AC08 | SSD runbook differentiates data copy, actual runtime verification, owner cleanup gate and absent-volume failure | readback and isolated probe where possible |
 
 ## Owner gates and rollback
