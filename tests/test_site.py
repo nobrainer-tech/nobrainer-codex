@@ -11,21 +11,35 @@ class Page(HTMLParser):
         self.links = []
         self.title = []
         self.in_title = False
+        self.copy_buttons = []
+        self.copy_status = None
+        self.in_prompt = False
+        self.prompt_text = []
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
         if tag == "a":
             self.links.append(values.get("href"))
+        if tag == "button" and "data-copy-prompt" in values:
+            self.copy_buttons.append(values)
+        if values.get("id") == "copy-status":
+            self.copy_status = values
+        if values.get("id") == "install-prompt":
+            self.in_prompt = True
         if tag == "title":
             self.in_title = True
 
     def handle_endtag(self, tag):
         if tag == "title":
             self.in_title = False
+        if tag == "code" and self.in_prompt:
+            self.in_prompt = False
 
     def handle_data(self, data):
         if self.in_title:
             self.title.append(data)
+        if self.in_prompt:
+            self.prompt_text.append(data)
 
 
 class SiteTest(unittest.TestCase):
@@ -63,6 +77,20 @@ class SiteTest(unittest.TestCase):
         self.assertIn('role="status" aria-live="polite"', text)
         self.assertIn('href="codex://"', text)
         self.assertIn('Paste the copied prompt into a new conversation yourself', text)
+
+    def test_prompt_panel_has_shared_copy_controls_and_live_feedback(self):
+        text = (ROOT / "site/index.html").read_text(encoding="utf-8")
+        parser = Page()
+        parser.feed(text)
+        self.assertEqual(len(parser.copy_buttons), 2)
+        self.assertIn("copy-prompt-hero", [button.get("id") for button in parser.copy_buttons])
+        self.assertIn("copy-prompt", [button.get("id") for button in parser.copy_buttons])
+        self.assertTrue(parser.prompt_text)
+        self.assertIn("Install NoBrainer Codex from https://github.com/nobrainer-tech/nobrainer-codex.", "".join(parser.prompt_text))
+        self.assertIn("codex://", parser.links)
+        self.assertEqual(parser.copy_status.get("role"), "status")
+        self.assertEqual(parser.copy_status.get("aria-live"), "polite")
+        self.assertEqual(parser.copy_status.get("aria-atomic"), "true")
 
 
 if __name__ == "__main__":
