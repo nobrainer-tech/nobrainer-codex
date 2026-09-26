@@ -40,13 +40,15 @@ class SiteTest(unittest.TestCase):
         self.assertIn('<html lang="en">', text)
         self.assertNotIn('id="language"', text)
         self.assertNotIn('hreflang="pl"', text)
-        self.assertIn('If your Mac mini is running out of space', text)
-        self.assertIn('nobrainer-tech-flow (https://github.com/nobrainer-tech/nobrainer-tech-flow)', text)
+        self.assertIn('Your setup may be using less context and fewer agents', text)
+        self.assertIn('Use NoBrainer.Tech Flow (https://github.com/nobrainer-tech/nobrainer-tech-flow)', text)
         self.assertIn('assets/codex-flow.svg', text)
         self.assertIn('Codex and nobrainer-tech-flow workflow', (ROOT / 'site/assets/codex-flow.svg').read_text(encoding='utf-8'))
         self.assertIn('https://nobrainer.tech/codex/assets/social-card.png', text)
         self.assertTrue((ROOT / 'site/assets/social-card.png').is_file())
-        self.assertIn('A configured 872k window cannot enlarge a smaller model', text)
+        self.assertIn('See when max is available', text)
+        self.assertIn('Running out of internal storage?', text)
+        self.assertGreater(text.index('<section id="ssd">'), text.index('<section id="start">'))
         self.assertIn("python3 install.py --check", text)
 
 

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 590" role="img" aria-labelledby="title desc">
   <title id="title">Codex and nobrainer-tech-flow workflow</title>
-  <desc id="desc">Codex coordinates independently scoped Luna agents through nobrainer-tech-flow. Verified backups and a rollback gate protect data when moving to an external SSD.</desc>
+  <desc id="desc">Your chosen MAIN model keeps the goal and coordinates independently scoped Luna agents through NoBrainer.Tech Flow. Catalog-backed context and supported reasoning levels stay visible.</desc>
   <defs>
     <filter id="lift" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#172943" flood-opacity=".14"/></filter>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#2948b8"/></marker>
@@ -10,7 +10,7 @@
   <rect x="48" y="38" width="12" height="12" fill="#d94724"/><text x="71" y="49" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-weight="800" font-size="17" fill="#202124">CODEX</text>
   <text x="146" y="49" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" fill="#485162">+</text>
   <text x="165" y="49" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-weight="750" font-size="17" fill="#2948b8">nobrainer-tech-flow</text>
-  <text x="542" y="48" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#485162">ONE VERIFIED PATH</text>
+  <text x="554" y="48" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#485162">YOUR CODEX SETUP</text>
   <g filter="url(#lift)"><rect x="54" y="129" width="236" height="270" rx="24" fill="#fffdf9" stroke="#abb7cc"/><rect x="75" y="153" width="65" height="30" rx="4" fill="#2948b8"/><text x="88" y="174" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" font-weight="750" fill="white">MAIN</text>
   <text x="77" y="224" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="29" font-weight="750" fill="#202124">Codex</text><text x="77" y="254" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#485162">Your chosen model</text>
   <path d="M77 284h187" stroke="#abb7cc"/><text x="77" y="317" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#202124">Keeps the goal</text><text x="77" y="344" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#202124">and checks the result</text></g>
@@ -21,6 +21,6 @@
   <path d="M380 405v52" stroke="#2948b8" stroke-width="3" marker-end="url(#arrow)"/>
   <rect x="110" y="465" width="545" height="91" rx="8" fill="#dbe4f6" stroke="#2948b8" stroke-width="2"/>
   <rect x="133" y="487" width="27" height="27" rx="3" fill="#2948b8"/><path d="M139 501l5 5 10-12" fill="none" stroke="white" stroke-width="3"/>
-  <text x="174" y="506" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#202124">External SSD, verified</text>
-  <text x="174" y="532" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" fill="#485162">Independent backup  ·  real startup check  ·  rollback</text>
+  <text x="174" y="506" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#202124">Supported settings, visible</text>
+  <text x="174" y="532" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" fill="#485162">Reasoning levels  ·  model context  ·  agent ceiling</text>
 </svg>

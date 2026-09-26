@@ -14,9 +14,9 @@ import tempfile
 import tomllib
 
 FLOW = "https://github.com/nobrainer-tech/nobrainer-tech-flow"
-INSTRUCTIONS = f"""# nobrainer-tech-flow
+INSTRUCTIONS = f"""# NoBrainer.Tech Flow
 
-- Use nobrainer-tech-flow ({FLOW}) through nobrainer-ultra. If missing, install it for the current client using the repository's installation instructions; verify availability and report any blocker honestly.
+- Use NoBrainer.Tech Flow ({FLOW}) through nobrainer-ultra. If missing, install it for the current client using the repository's installation instructions; verify availability and report any blocker honestly.
 - Preserve the MAIN model and effort selected by the user. Aggressively and proactively delegate independent work to native GPT-6 Luna subagents, using the exact identifier supported by the host (`gpt-6-luna` or `openai/gpt-6-luna`). Choose supported effort per task; do not force a fixed level or silently substitute another model.
 - Maximize useful parallelism to minimize time to a verified result: actively split work into independent tasks, fill all available subagent slots while ready work exists, and promptly assign the next task when a worker finishes. Use the maximum concurrency supported by the host; never create filler tasks merely to fill slots. Give each a clear outcome, relevant context, exclusive write scope and verification criteria. MAIN works in parallel, integrates and verifies results. Avoid duplicated work, conflicting edits and unnecessary delegation. No recursive delegation or new sidebar conversations without explicit authorization.
 - Load the relevant Flow skills and their required references for research, planning, implementation, writing and review. Follow project instructions, preserve facts and write naturally in the user's language.
@@ -67,30 +67,38 @@ def set_key(text: str, section: str | None, key: str, value: str) -> str:
     return "".join(lines)
 
 
-def selected_ceiling(config: dict, home: Path) -> tuple[int | None, str]:
+def selected_capabilities(config: dict, home: Path) -> tuple[int | None, list[str], str]:
     model = config.get("model")
     if not isinstance(model, str):
-        return None, "No explicit default model; current conversation choices preserved"
+        return None, [], "No explicit default model; current conversation choices preserved"
     raw_path = config.get("model_catalog_json")
     if not isinstance(raw_path, str):
-        return None, "No local verified model catalog; context override unchanged"
+        return None, [], "No local model catalog; context override unchanged"
     path = Path(os.path.expandvars(raw_path)).expanduser()
     if not path.is_absolute():
         path = home / path
     if not path.is_file():
-        return None, "Model catalog unavailable; context override unchanged"
+        return None, [], "Model catalog unavailable; context override unchanged"
     data = json.loads(path.read_text(encoding="utf-8"))
     rows = data.get("models", [])
     if not isinstance(rows, list):
         raise ValueError("Unexpected model catalog shape")
     matched = [row for row in rows if isinstance(row, dict) and row.get("slug") == model]
     if len(matched) != 1:
-        return None, "Selected model missing/ambiguous in catalog; context override unchanged"
+        return None, [], "Selected model missing/ambiguous in catalog; context override unchanged"
     row = matched[0]
     ceiling = row.get("max_context_window")
     if not isinstance(ceiling, int) or isinstance(ceiling, bool) or ceiling < 8192 or ceiling > 2_000_000:
         raise ValueError("Model ceiling outside verified catalog range")
-    return ceiling, f"Catalog advertises {model} at {ceiling} tokens"
+    levels = row.get("supported_reasoning_levels", [])
+    if not isinstance(levels, list):
+        raise ValueError("Unexpected reasoning levels in model catalog")
+    reasoning_levels = []
+    for level in levels:
+        if not isinstance(level, dict) or not isinstance(level.get("effort"), str):
+            raise ValueError("Unexpected reasoning level in model catalog")
+        reasoning_levels.append(level["effort"])
+    return ceiling, reasoning_levels, f"Local catalog advertises {model} at {ceiling} tokens"
 
 
 def atomic_write(path: Path, data: bytes, mode: int) -> None:
@@ -129,7 +137,7 @@ def main() -> int:
     config = tomllib.loads(original)
     if "max_threads" in config.get("agents", {}):
         parser.error("Legacy agents.max_threads present; resolve it before setting the newer concurrency key")
-    window, reason = selected_ceiling(config, home)
+    window, reasoning_levels, reason = selected_capabilities(config, home)
     changed = original
     if window:
         changed = set_key(changed, None, "model_context_window", str(window))
@@ -147,6 +155,8 @@ def main() -> int:
                 raise ValueError(f"Unexpected config change: {key}")
     requested = {"codex_home": str(home), "model_selected": config.get("model"),
                  "reasoning_selected": config.get("model_reasoning_effort"),
+                 "reasoning_levels_in_catalog": reasoning_levels,
+                 "max_reasoning_in_catalog": "max" in reasoning_levels,
                  "context_ceiling": window, "context_evidence": reason,
                  "will_change": [str(path) for path, data in zip(targets, (INSTRUCTIONS, changed))
                                  if (path.read_text(encoding="utf-8") if path.is_file() else "") != data]}

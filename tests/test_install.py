@@ -18,7 +18,8 @@ class InstallerTest(unittest.TestCase):
         self.home.mkdir()
         self.catalog = self.home / "catalog.json"
         self.catalog.write_text(json.dumps({"models": [
-            {"slug": "gpt-6-astra", "max_context_window": 872000},
+            {"slug": "gpt-6-astra", "max_context_window": 872000,
+             "supported_reasoning_levels": [{"effort": "low"}, {"effort": "max"}]},
             {"slug": "old-model", "max_context_window": 128000},
         ]}))
         self.config = self.home / "config.toml"
@@ -36,7 +37,10 @@ class InstallerTest(unittest.TestCase):
 
     def test_check_is_read_only_and_apply_is_idempotent(self):
         original = self.config.read_bytes()
-        self.assertEqual(self.run_installer("--check").returncode, 0)
+        preview = self.run_installer("--check")
+        self.assertEqual(preview.returncode, 0)
+        self.assertEqual(json.loads(preview.stdout)["reasoning_levels_in_catalog"], ["low", "max"])
+        self.assertTrue(json.loads(preview.stdout)["max_reasoning_in_catalog"])
         self.assertEqual(self.config.read_bytes(), original)
         self.assertEqual(self.agents.read_text(), "user-original\n")
         applied = self.run_installer("--apply")
@@ -50,7 +54,7 @@ class InstallerTest(unittest.TestCase):
                                            "default_subagent_model": "openai/gpt-6-luna"})
         self.assertEqual(state["tui"]["status_line"][1], "context-remaining")
         self.assertIn("https://github.com/nobrainer-tech/nobrainer-tech-flow", self.agents.read_text())
-        self.assertIn("Use nobrainer-tech-flow", self.agents.read_text())
+        self.assertIn("Use NoBrainer.Tech Flow", self.agents.read_text())
         self.assertEqual(self.run_installer("--apply").returncode, 0)
         self.assertEqual(len(list(self.home.glob("nobrainer-codex-backup-*"))), 1)
 
@@ -58,6 +62,7 @@ class InstallerTest(unittest.TestCase):
         self.config.write_text(self.config.read_text().replace('model = "gpt-6-astra"', 'model = "old-model"'))
         self.assertEqual(self.run_installer("--apply").returncode, 0)
         self.assertEqual(tomllib.loads(self.config.read_text())["model_context_window"], 128000)
+        self.assertFalse(json.loads(self.run_installer("--check").stdout)["max_reasoning_in_catalog"])
 
     def test_missing_catalog_keeps_existing_window(self):
         self.config.write_text(self.config.read_text().replace('[agents]', 'model_context_window = 256000\n\n[agents]'))
