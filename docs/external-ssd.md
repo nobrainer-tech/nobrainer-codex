@@ -8,6 +8,7 @@ Data migration is deliberately separate from `install.py`. It depends on the hos
 2. Inspect free bytes on the data volume, destination space, encryption state, hardware/SMART availability and any filesystem warning. A healthy fsck is not a hardware-life test. If filesystem checks disagree, investigate offline without unmounting beneath the operator; repeat only after a causal change.
 3. Inventory Git remotes and dirty/untracked/ignored worktrees. GitHub only covers confirmed remote objects, not Codex conversations, credentials, database volumes or local work. Back up the rest on independent storage. Keep credentials outside the public repo; use a private recovery method for the encryption passphrase.
 4. Determine who uses the original Codex home. Do not move its root while an independent gateway or other process holds an open coordination DB there. On this Mac, opencodex uses an internal `~/.codex` file and cannot depend on an absent external drive.
+5. Inventory optional Codex plugins and their actual package, cache and helper paths before moving them. A plugin cache symlink may point through `CODEX_HOME` to the SSD. Record both the visible path and physical target. For Browser or Computer Use, record whether the current conversation exposes their interaction capability; an open sidebar tab alone does not prove it can be controlled.
 
 ## Cutover and proof
 
@@ -17,6 +18,14 @@ Data migration is deliberately separate from `install.py`. It depends on the hos
 4. Verify CLI login, GUI account, existing active and archived conversations, manually selected models and worktrees. If Docker/Colima was moved, start exactly the previously running containers, mount every real target of guest bind paths, and verify volume hashes/DB queries/health, ports, context/socket and open VM images. Do not send a test turn into an owner's conversation.
 5. Protect startup without the SSD: detect the correct UUID and unlocked encrypted volume **before** writing. Test a missing-drive simulation for every entry point, including the actual official Dock/start-menu icon and auto-start jobs. On platforms where an official launcher cannot be intercepted safely, do not claim fail-closed behavior; choose a guarded launcher or obtain a vendor-supported solution. Never change the signed app bundle or turn off platform security.
 6. Finish encryption (not just start it), keep secrets in a local password manager outside the disk, and retain all source originals until the owner confirms GUI behavior and independent backups are proven. Measure reclaimed physical space with `df`/volume free bytes only after approved cleanup.
+
+## Browser and Computer Use after cutover or upgrade
+
+The bundled Browser plugin may run through a separate helper process. After moving the plugin cache or updating Codex, verify the selected Browser package version and resolve every configured helper path through symlinks to its physical target. If the active Browser service uses a package under the relocated cache, the trusted service entry and trusted code paths must cover that exact package and its real target. Do not use a broad trust directory merely to make an error disappear, disable path validation, copy browser cookies, or edit the signed app bundle.
+
+Configuration on disk is only the intended state. Compare the relevant **running helper process** environment with the current `config.toml`, without printing unrelated environment variables or secrets. If it still has paths from before the cutover, finish or safely pause active Codex tasks, then restart the app through its approved launcher. Restarting only a browser tab does not reload an already running helper's environment. Do not kill arbitrary helper PIDs while other tasks use them.
+
+Finally, use the Browser plugin's documented client in a conversation where that capability is available: list or select a tab, read its visible state, and perform one harmless interaction in the in-app browser. `open_in_codex` proves only that a tab can be displayed. A standalone Playwright session uses a separate profile and does not prove control of the signed-in sidebar tab. Computer Use may intentionally refuse to target the Codex app; do not bypass that boundary. If the current conversation does not expose Browser even after a verified restart, report that session-level limitation instead of claiming the SSD migration is repaired.
 
 ## Restore
 
