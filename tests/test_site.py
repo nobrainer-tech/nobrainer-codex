@@ -43,6 +43,17 @@ class Page(HTMLParser):
 
 
 class SiteTest(unittest.TestCase):
+    def test_shared_brand_typography_is_loaded_last(self):
+        text = (ROOT / "site/index.html").read_text(encoding="utf-8")
+        css = (ROOT / "site/assets/brand-typography.css").read_text(encoding="utf-8")
+        self.assertIn('href="assets/brand-typography.css?v=20260927"', text)
+        self.assertGreater(text.index("assets/brand-typography.css"), text.rfind("</style>"))
+        self.assertIn("font-family: var(--font-brand)", css)
+        self.assertIn("font-weight: 700", css)
+        self.assertIn("clamp(54px, 6.15vw, 88px)", css)
+        self.assertIn("header .wordmark .product-path", css)
+        self.assertIn("@media (max-width: 360px)", css)
+
     def test_install_and_source_links_have_real_targets(self):
         text = (ROOT / "site/index.html").read_text(encoding="utf-8")
         parser = Page()

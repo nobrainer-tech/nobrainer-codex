@@ -27,6 +27,16 @@ SSD relocation is optional and separately authorized. It is a platform-specific 
 | AC08 | SSD runbook differentiates data copy, actual runtime verification, owner cleanup gate and absent-volume failure | readback and isolated probe where possible |
 | AC09 | One copy button copies the complete install prompt with an accessible result; optional `codex://` opens a registered app without claiming prompt prefill | local browser interaction and static checks |
 
+## Brand typography
+
+Match the rendered English homepage at https://nobrainer.tech/, checked on 2026-09-27, rather than an older generic Signature example. The shared product-page contract lives in `site/assets/brand-typography.css`, loaded after page styles. Keep this file identical in the Codex and Claude repositories.
+
+- Font family: `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`; no downloaded display font. Actual system face varies by operating system.
+- Hero heading: weight 700, size `clamp(54px, 6.15vw, 88px)`, line-height 1.02, letter-spacing -0.052em, word-spacing 0.025em.
+- At 900px and below: size `clamp(56px, 8.5vw, 80px)`. At 580px and below: 56px, line-height 1.03, tracking -0.042em. At 360px and below: 52px.
+- Header identity: 21px, weight 760, tracking -1px; 20px at 580px and below, 18px at 360px and below. Domain and product suffix inherit this typography instead of browser-default bold or smaller text.
+- Preserve product-specific wording and wrapping. Verify computed heading styles against the live homepage at matching viewports, plus mobile overflow and copy controls. A matching font-family declaration alone is not visual parity.
+
 ## Owner gates and rollback
 
 Installation writes only `AGENTS.md` and `config.toml` in an explicitly discovered Codex home. Backups under that same home are security-sensitive; no public commits of generated material. Restore via the manifest and rerun `--check`. SSD encryption, deletion and migration remain separate explicit approvals. No automatic remote installation, pushing, publishing or model substitutions. Repo/site release reads back URL and returned content. The actual macOS migration has its own private local ledger; the public repo does not copy it.
