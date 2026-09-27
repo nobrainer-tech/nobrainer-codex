@@ -36,4 +36,6 @@ The actual context window and subagent capacity can be lower than configuration 
 
 Running out of internal storage? Read the [external SSD runbook](docs/external-ssd.md) before moving a byte. The installer never moves data. Desktop launch behavior and rollback need separate, real-host verification.
 
+If Browser interaction stops working after a move or update, the same runbook covers live-helper checks and the optional in-app Computer Use route when that tool is exposed in your Codex conversation. A visible sidebar tab alone is not proof of interaction access.
+
 Sources: [Codex configuration reference](https://developers.openai.com/codex/config-file/config-reference), [GPT-6 Astra model specification](https://developers.openai.com/api/docs/models/gpt-6-astra), [slash commands](https://developers.openai.com/codex/reference/slash-commands), [nobrainer-tech-flow](https://github.com/nobrainer-tech/nobrainer-tech-flow).
