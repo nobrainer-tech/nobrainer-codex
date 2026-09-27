@@ -8,11 +8,13 @@ ROOT = Path(__file__).resolve().parents[1]
 class BrowserRunbookTest(unittest.TestCase):
     def test_recovery_requires_conversation_identity(self):
         text = (ROOT / "docs/external-ssd.md").read_text(encoding="utf-8")
-        self.assertIn("codexSessionId", text)
+        self.assertIn("metadata.codexSessionId", text)
         self.assertIn("exact browser and tab IDs", text)
         self.assertIn("session metadata is absent or mismatched", text)
         self.assertIn("at least two conversations", text)
         self.assertNotIn('{browser: "iab"}', text)
+        self.assertNotRegex(text, r"cua\.getTab\(\s*\{\s*url\s*:")
+        self.assertIn("URL matching remains insufficient even when an explicit browser ID is supplied", text)
 
     def test_readback_is_not_interaction_or_global_recovery(self):
         text = (ROOT / "docs/external-ssd.md").read_text(encoding="utf-8")
