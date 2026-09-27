@@ -16,7 +16,7 @@ import tomllib
 FLOW = "https://github.com/nobrainer-tech/nobrainer-tech-flow"
 INSTRUCTIONS = f"""# nobrainer-tech-flow
 
-- Use nobrainer-tech-flow ({FLOW}) through nobrainer-ultra. If missing, install it for the current client using the repository's installation instructions; verify availability and report any blocker honestly.
+- Use nobrainer-tech-flow ({FLOW}) through nobrainer-tech-flow. If missing, install it for the current client using the repository's installation instructions; verify availability and report any blocker honestly.
 - Preserve the MAIN model and effort selected by the user. Aggressively and proactively delegate independent work to native GPT-6 Luna subagents, using the exact identifier supported by the host (`gpt-6-luna` or `openai/gpt-6-luna`). Choose supported effort per task; do not force a fixed level or silently substitute another model.
 - Maximize useful parallelism to minimize time to a verified result: actively split work into independent tasks, fill all available subagent slots while ready work exists, and promptly assign the next task when a worker finishes. Use the maximum concurrency supported by the host; never create filler tasks merely to fill slots. Give each a clear outcome, relevant context, exclusive write scope and verification criteria. MAIN works in parallel, integrates and verifies results. Avoid duplicated work, conflicting edits and unnecessary delegation. No recursive delegation or new sidebar conversations without explicit authorization.
 - Load the relevant Flow skills and their required references for research, planning, implementation, writing and review. Follow project instructions, preserve facts and write naturally in the user's language.
