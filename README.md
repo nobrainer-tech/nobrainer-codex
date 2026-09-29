@@ -22,6 +22,10 @@ python3 nobrainer-codex/install.py --apply
 
 Windows PowerShell uses `py -3.11 nobrainer-codex/install.py --check` and then `--apply`. Pass `--codex-home PATH` if you use a nondefault `CODEX_HOME`. If no model catalog proves the selected model's window, the installer leaves context settings unchanged and reports the missing evidence. No browser/desktop account actions or external disk writes occur during installation.
 
+### Undo and update
+
+Before it writes anything, `--apply` copies the `AGENTS.md` and `config.toml` from your Codex home into a new `nobrainer-codex-backup-<UTC time>` folder there and prints that folder as `backup`. To undo, quit Codex, copy those files back into the Codex home and start Codex again; a file missing from that folder did not exist before, so delete it instead. To update, run `git pull` in your copy of this repository, then `--check` and `--apply` again.
+
 ## What it does
 
 - Installs the owner's five [nobrainer-tech-flow](https://github.com/nobrainer-tech/nobrainer-tech-flow) global instruction bullets in `AGENTS.md` and makes no new sidebar conversation.
